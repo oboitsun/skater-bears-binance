@@ -27,7 +27,7 @@ export default function CarouselHeroSection() {
       <div className=" ">
         <div className="swpr-button swpr-prev">
           <img
-            className=" transform rotate-180"
+            className="transform rotate-180"
             src="/imgs/carousel-arrow.svg"
             alt="prev slide"
           />

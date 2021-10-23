@@ -19,8 +19,8 @@ export default function Button({
     },
     outlined: {
       hovered:
-        "hover:border-white border-2 hover:bg-transparent hover:text-white hover:shadow-lg hover:scale-[105%] hover:transform",
-      unhovered: "border-2 border-white",
+        "hover:border-white  border-2 hover:bg-crmsn hover:text-white hover:shadow-lg hover:scale-[105%] hover:transform hover:text-white",
+      unhovered: "border-2 border-black text-black",
     },
   };
 

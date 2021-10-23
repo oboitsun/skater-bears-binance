@@ -24,6 +24,8 @@ body {
 }
 
 .swpr-button {
+  z-index: 2;
+  cursor: pointer;
   width: 32px;
   height: 32px;
   position: absolute;
@@ -43,13 +45,27 @@ body {
   right: 0;
 }
 .carousel2.swiper {
-  width: 360px;
-  height: 459px;
+  width: 60vw;
+
+  aspect-ratio: 1/1.26;
+  /* height: calc(60vw * 1.26); */
+}
+@media (min-width: 1024px) {
+  .carousel2.swiper {
+    width: 100%;
+
+    aspect-ratio: 1/1.26;
+    /* height: calc(60vw * 1.26); */
+  }
 }
 .carousel2 .swiper-slide {
   padding: 14px;
+  padding-bottom: 0;
   background: #ffffff;
   border: 1px solid #d8d8d8;
   box-sizing: border-box;
   border-radius: 10px;
+}
+.carousel2 .swiper-slide-next,
+.carousel2 .swiper-slide-prev {
 }

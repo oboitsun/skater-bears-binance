@@ -3,6 +3,8 @@ import Image from "next/image";
 import CardsSection from "../components/CardsSection";
 import Header from "../components/Header";
 import HeroSection from "../components/HeroSection";
+import Roadmap from "../components/Roadmap";
+import Team from "../components/Team";
 
 export default function Home() {
   return (
@@ -37,6 +39,8 @@ export default function Home() {
       </div>
 
       <CardsSection />
+      <Team />
+      <Roadmap />
     </div>
   );
 }
