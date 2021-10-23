@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import CardsSection from "../components/CardsSection";
+import FAQ from "../components/FAQ";
 import Header from "../components/Header";
 import HeroSection from "../components/HeroSection";
 import Roadmap from "../components/Roadmap";
@@ -41,6 +42,7 @@ export default function Home() {
       <CardsSection />
       <Team />
       <Roadmap />
+      <FAQ />
     </div>
   );
 }

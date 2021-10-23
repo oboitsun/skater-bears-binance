@@ -4,7 +4,7 @@ export default function RoadMapBear({ src, bg, odd }) {
   return (
     <div
       className={`overflow-hidden ${
-        odd ? "right-[5%]" : "left-[5%]"
+        odd ? "right-[3%]" : "left-[3%]"
       } relative lg:w-full lg:pb-[100%] w-[55%] pb-[55%] h-full  transform ${
         !odd && "scale-x-[-1] lg:col-start-2 row-start-1"
       }`}

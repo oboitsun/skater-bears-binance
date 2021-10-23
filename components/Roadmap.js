@@ -14,7 +14,7 @@ export default function Roadmap() {
           month="july 2021"
           paragraph={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries`}
         />
-        <div className="absolute w-[20%] top-[80%] left-[40%] transform -translate-x-1/2">
+        <div className="hidden lg:block absolute w-[20%] top-[80%] left-[40%] transform -translate-x-1/2">
           <Image
             src="/imgs/arrow-down.png"
             alt="arrow"
@@ -30,7 +30,7 @@ export default function Roadmap() {
           month="august 2021"
           paragraph={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries`}
         />
-        <div className="absolute w-[20%] top-[70%] right-[45%] transform translate-x-1/2 scale-x-[-1]">
+        <div className="hidden lg:block absolute w-[20%] top-[70%] right-[45%] transform translate-x-1/2 scale-x-[-1]">
           <Image
             src="/imgs/arrow-down.png"
             alt="arrow"
@@ -47,7 +47,7 @@ export default function Roadmap() {
           month="september 2021"
           paragraph={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries`}
         />
-        <div className="absolute w-[25%] top-[80%] left-[46%] transform -translate-x-1/2">
+        <div className="hidden lg:block absolute w-[25%] top-[80%] left-[46%] transform -translate-x-1/2">
           <Image
             src="/imgs/arrow-last.png"
             alt="arrow"
