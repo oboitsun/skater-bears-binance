@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Button from "./Button";
 import { Link as Anchor } from "react-scroll";
+import Socials from "./Socials";
 
 export default function ModalMenu({ showMenu, setShowMenu }) {
   const links = [
@@ -59,7 +60,10 @@ export default function ModalMenu({ showMenu, setShowMenu }) {
         </motion.div>
       ))}
       <motion.div key={11} variants={item}>
-        <Button type="outlined" spcng="px-7 filter invert" text="Connect Wallet" />
+        <Button type="outlined" spcng="px-7 " text="Connect Wallet" />
+      </motion.div>
+      <motion.div key={12} variants={item} className="pt-5">
+        <Socials big />{" "}
       </motion.div>
     </motion.div>
   );

@@ -3,6 +3,7 @@ import Burger from "./Burger";
 import Logo from "./Logo";
 import { Link as Anchor } from "react-scroll";
 import Button from "./Button";
+import Socials from "./Socials";
 
 export default function Header({ showMenu, setShowMenu, scrolled }) {
   const links = [
@@ -25,7 +26,7 @@ export default function Header({ showMenu, setShowMenu, scrolled }) {
   return (
     <div
       className={`w-full   px-10 lg:px-0 transition-all duration-500   fixed top-0 left-0 z-30 ${
-        scrolled ? "bg-black py-3" : "py-[30px]"
+        scrolled ? "bg-black py-3 shadow-lg" : "py-[30px]"
       }`}
     >
       <div className="max-w-864 xl:max-w-1080 mx-auto justify-between flex items-center">
@@ -39,6 +40,7 @@ export default function Header({ showMenu, setShowMenu, scrolled }) {
               {l.text}
             </Anchor>
           ))}
+          <Socials />
           <Button type="outlined" spcng={"px-4 "} text="Connect Wallet" />
         </div>
       </div>

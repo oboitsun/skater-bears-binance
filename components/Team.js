@@ -24,7 +24,7 @@ const team = [
 ];
 export default function Team() {
   return (
-    <div className="bg-lghtGray py-14 lg:py-[100px] xl:py-[120px]">
+    <div id="team" className="bg-lghtGray py-14 lg:py-[100px] xl:py-[120px]">
       <div className="px-10 max-w-864 xl:max-w-1080 lg:px-0 mx-auto">
         <p className="text-crmsn font-extrabold uppercase text-4xl text-center">team</p>
         <p className="text-black font-medium   text-xs leading-loose text-center">

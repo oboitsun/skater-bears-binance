@@ -25,7 +25,10 @@ const team = [
 ];
 export default function CardsSection() {
   return (
-    <div className="grid gap-10 px-10 lg:px-0 py-10 lg:py-[100px] lg:grid-cols-2 lg:max-w-864 mx-auto xl:max-w-1080 overflow-hidden">
+    <div
+      id="about-us"
+      className="grid gap-10 px-10 lg:px-0 py-10 lg:py-[100px] lg:grid-cols-2 lg:max-w-864 mx-auto xl:max-w-1080 overflow-hidden"
+    >
       <div className="w-full place-items-center place-self-center  lg:pr-10 max-w-[375px] mx-auto">
         <CarouselCards />
       </div>

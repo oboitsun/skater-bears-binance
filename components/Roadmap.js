@@ -4,7 +4,10 @@ import RoadMapParagraph from "./RoadMapParagraph";
 import Image from "next/image";
 export default function Roadmap() {
   return (
-    <div className="py-14 px-10 lg:px-0 max-w-864 xl:max-w-1080 mx-auto flex flex-col items-center">
+    <div
+      id="roadmap"
+      className="py-14 px-10 lg:px-0 max-w-864 xl:max-w-1080 mx-auto flex flex-col items-center"
+    >
       <p className="text-[32px] font-extrabold uppercase text-center">Roadmap </p>
 
       <div className="w-full flex flex-col lg:grid grid-cols-[42%,1fr] gap-x-20 items-center gap-y-6 mb-10 relative">

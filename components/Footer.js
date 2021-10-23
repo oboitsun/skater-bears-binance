@@ -3,6 +3,7 @@ import Burger from "./Burger";
 import Logo from "./Logo";
 import { Link as Anchor } from "react-scroll";
 import Button from "./Button";
+import Socials from "./Socials";
 
 export default function Footer({ showMenu, setShowMenu }) {
   const links = [
@@ -27,7 +28,12 @@ export default function Footer({ showMenu, setShowMenu }) {
       <div className="max-w-864 xl:max-w-1080 mx-auto justify-between flex items-center">
         <div className="flex flex-col items-center">
           <Logo wide={false} />
-          <p className="text-gray-600 lg:hidden text-center py-5">
+          <div className="lg:hidden pt-5">
+            {" "}
+            <Socials big />
+          </div>
+
+          <p className="text-gray-400 lg:hidden text-center py-5">
             2021 © NZ Marketing Group Limited trading as Munchy. All Rights Reserved.
           </p>
         </div>

@@ -23,7 +23,7 @@ const bears = [
 
 export default function CarouselHeroSection() {
   return (
-    <div className=" w-full lg:w-[60%] xl:w-[50%] flex-grow-1 lg:order-1 relative ">
+    <div className=" w-full lg:w-[60%] xl:w-[50%] flex-grow-1 lg:order-1 relative  max-w-[400px] lg:max-w-[450px] mx-auto ">
       <div className=" ">
         <div className="swpr-button swpr-prev">
           <img

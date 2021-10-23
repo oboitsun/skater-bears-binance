@@ -14,8 +14,11 @@ const faqs = [
 ];
 export default function FAQ() {
   return (
-    <div className="bg-black px-10 py-14  overflow-hidden relative">
-      <div className="flex flex-col lg:grid grid-cols-2 gap-x-10 auto-rows-auto flex-wrap  relative z-[1] max-w-864 xl:max-w-1080 mx-auto">
+    <div id="faq" className="bg-black px-10 py-14  overflow-hidden relative">
+      <p className="text-white text-center pb-10 uppercase font-extrabold text-2xl lg:text-[32px] xl:text-[48px] relative z-[1]">
+        faq
+      </p>
+      <div className="flex flex-col lg:grid grid-cols-2 gap-x-5 auto-rows-auto flex-wrap  relative z-[1] max-w-864 xl:max-w-1080 mx-auto">
         <div className="h-px bg-lghtGray w-full  opacity-50 flex-shrink-0"></div>
         <div className="hidden  lg:block h-px bg-lghtGray w-full opacity-50 flex-shrink-0"></div>
         {faqs.map((f, i) => (
@@ -24,15 +27,7 @@ export default function FAQ() {
       </div>
 
       <div className="absolute w-full h-full top-0 left-0">
-        <Image
-          src="/imgs/hero-back.png"
-          layout="fill"
-          objectFit="cover"
-          alt="hero section"
-        />
-      </div>
-      <div className="lg:hidden absolute w-full h-full top-0 left-0 ">
-        <Image src="/imgs/hero.png" layout="fill" objectFit="cover" alt="hero section" />
+        <Image src="/imgs/faq.png" layout="fill" objectFit="cover" alt="hero section" />
       </div>
     </div>
   );
