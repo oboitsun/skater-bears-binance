@@ -32,7 +32,7 @@ export default function ModalMenu({ showMenu, setShowMenu }) {
     },
     hidden: {
       height: "100vh",
-      x: "-100vh",
+      x: "-110vh",
     },
   };
   const item = {

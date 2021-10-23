@@ -1,5 +1,5 @@
 import React from "react";
-import Burger from "./Burger";
+import Image from "next/image";
 import Logo from "./Logo";
 import { Link as Anchor } from "react-scroll";
 import Button from "./Button";
@@ -24,7 +24,7 @@ export default function Footer({ showMenu, setShowMenu }) {
       "cursor-pointer text-white font-bold  transform transition-all hover:scale-110 hover:text-crmsn ",
   };
   return (
-    <div className="w-full  py-[30px] px-10 lg:px-0   bg-black">
+    <div className="w-full  py-[30px] px-10 lg:px-0   bg-black relative z-[2] ">
       <div className="max-w-864 xl:max-w-1080 mx-auto justify-between flex items-center">
         <div className="flex flex-col items-center">
           <Logo wide={false} />
@@ -44,7 +44,7 @@ export default function Footer({ showMenu, setShowMenu }) {
               {l.text}
             </Anchor>
           ))}
-          <Button type="outlined" spcng="px-7 filter invert" text="Connect Wallet" />
+          <Button type="outlined" spcng="px-7 " text="Connect Wallet" />
         </div>
       </div>
     </div>

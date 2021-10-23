@@ -36,6 +36,7 @@ export default function CarouselHeroSection() {
           <img src="/imgs/carousel-arrow.svg" alt="next slide" />
         </div>
         <Swiper
+          autoplay={{ delay: 2500 }}
           className=""
           centeredSlides={true}
           modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -51,10 +52,11 @@ export default function CarouselHeroSection() {
             <SwiperSlide key={i} className="w-full">
               <div className="w-full relative  ">
                 <div className="absolute z-[1] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 pb-[66.67%] rounded-full bg-black/10"></div>
-                <div className="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] ">
+                <div className="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[75%] h-[75%] ">
                   <img className="w-full" src="/imgs/splash-bg.png" alt="splash" />
                 </div>
                 <Image
+                  priority={true}
                   className="z-[3] relative"
                   src={bear.src}
                   alt="NFT Bear"

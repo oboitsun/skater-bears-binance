@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "./Button";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import CarouselCards from "./CarouselCards";
 const team = [
   {
@@ -24,6 +26,18 @@ const team = [
   },
 ];
 export default function CardsSection() {
+  const { ref, inView } = useInView({ threshold: 0.1 });
+  const cont = {
+    show: {
+      x: 0,
+      transition: { duration: 0.3, staggerChildren: 0.1, delayChildren: 0.3 },
+    },
+    hidden: { x: 0, transition: { duration: 0.1 } },
+  };
+  const item = {
+    show: { x: 0, opacity: 1, transition: { duration: 0.3 } },
+    hidden: { x: "-60vw", opacity: 0, transition: { duration: 1 } },
+  };
   return (
     <div
       id="about-us"
@@ -32,16 +46,42 @@ export default function CardsSection() {
       <div className="w-full place-items-center place-self-center  lg:pr-10 max-w-[375px] mx-auto">
         <CarouselCards />
       </div>
-      <div className="w-full xl:text-[48px] xl:leading-[57px] text-[32px] leading-[38px] font-bold  place-self-center">
-        <p className="text-black uppercase ">What is</p>
-        <p className="text-crmsn uppercase">Skater Bears?</p>
-        <p className="font-medium text-xs lg:text-sm lg:leading-loose lg:max-w-[372px] leading-loose pb-4 lg:py-4 xl:text-base xl:leading-loose xl:max-w-[415px]">
+      <motion.div
+        ref={ref}
+        variants={cont}
+        initial="hidden"
+        animate={inView ? "show" : "hidden"}
+        className="w-full xl:text-[48px] xl:leading-[57px] text-[32px] leading-[38px] font-bold self-center flex flex-col justify-center lg:pt-20  place-self-center"
+      >
+        <motion.p
+          variants={item}
+          key={1}
+          className="text-black uppercase font-extrabold "
+        >
+          What is
+        </motion.p>
+        <motion.p variants={item} key={2} className="text-crmsn uppercase font-extrabold">
+          Skater Bears?
+        </motion.p>
+        <motion.p
+          variants={item}
+          key={3}
+          className="font-medium text-xs lg:text-sm lg:leading-loose lg:max-w-[372px] leading-loose pb-4 lg:py-4 xl:text-base xl:leading-loose xl:max-w-[415px]"
+        >
           Skater Bears is a game centered around breedable, and oh-so-adorable creatures
           we call Skater Bears! Each cat is one-of-a-kind and 100% owned by you; it cannot
           be replicated, taken away, or destroyed.
-        </p>
-        <Button type="outlined" text="Get Your Own Bear" icon={false} />
-      </div>
+        </motion.p>
+        <motion.div variants={item} key={4}>
+          {" "}
+          <Button
+            type="outlined"
+            addClass="filter invert hover:invert-0"
+            text="Get Your Own Bear"
+            icon={false}
+          />
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

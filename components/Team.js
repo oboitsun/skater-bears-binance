@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 const team = [
   {
     src: "/imgs/postcard1.png",
@@ -23,6 +25,26 @@ const team = [
   },
 ];
 export default function Team() {
+  const { ref, inView } = useInView({ threshold: 0.4 });
+  const cont = {
+    show: {
+      transition: { duration: 0.3, staggerChildren: 0.1, delayChildren: 0.3 },
+    },
+    hidden: { transition: { duration: 0.3 } },
+  };
+  const item = {
+    show: {
+      x: 0,
+      scale: [1, 1.3, 1],
+      opacity: 1,
+      transition: { duration: 0.3, staggerChildren: 0.1, delayChildren: 0.5 },
+    },
+    hidden: { x: "-100%", scale: 0, opacity: 0, transition: { duration: 0.3 } },
+  };
+  const item1 = {
+    show: { y: 0, opacity: 1, transition: { duration: 0.3 } },
+    hidden: { y: "-50px", opacity: 0, transition: { duration: 0.3 } },
+  };
   return (
     <div id="team" className="bg-lghtGray py-14 lg:py-[100px] xl:py-[120px]">
       <div className="px-10 max-w-864 xl:max-w-1080 lg:px-0 mx-auto">
@@ -31,25 +53,39 @@ export default function Team() {
           {` Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
           Ipsum has been the industry's standard dummy text ever since the 1500s`}
         </p>
-        <div className="grid grid-cols-2 grid-rows-2 gap-x-10 gap-y-6 mt-6 lg:grid-cols-4 lg:grid-rows-1 lg:mt-10">
+        <motion.div
+          variants={cont}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          ref={ref}
+          className="grid grid-cols-2 grid-rows-2 gap-x-10 gap-y-6 mt-6 lg:grid-cols-4 lg:grid-rows-1 lg:mt-10"
+        >
           {team.map((t, i) => (
-            <div key={i} className="flex flex-col w-full">
-              <Image
-                src={t.src}
-                alt={t.name}
-                layout="responsive"
-                width={239}
-                height={253}
-              />
-              <p className="text-black font-bold text-sm py-0.5 lg:text-base xl:text-2xl">
+            <motion.div variants={item} key={i} className="flex flex-col w-full">
+              <div className="w-full relative z-[1]">
+                <Image
+                  src={t.src}
+                  alt={t.name}
+                  layout="responsive"
+                  width={239}
+                  height={253}
+                />
+              </div>
+              <motion.p
+                variants={item1}
+                className="text-black font-bold text-sm py-0.5 lg:text-base xl:text-2xl z-[0]"
+              >
                 {t.name}
-              </p>
-              <p className="text-crmsn font-bold text-xs lg:text-sm xl:text-base">
+              </motion.p>
+              <motion.p
+                variants={item1}
+                className="text-crmsn font-bold text-xs lg:text-sm xl:text-base z-[0]"
+              >
                 {t.position}
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -12,6 +12,19 @@ import Footer from "../components/Footer";
 import ModalMenu from "../components/ModalMenu";
 
 export default function Home() {
+  const bears = [
+    "/imgs/bear1.png",
+    "/imgs/bear2.png",
+    "/imgs/bear3.png",
+    "/imgs/bear4.png",
+    "/imgs/bear5.png",
+    "/imgs/bear6.png",
+    "/imgs/bear7.png",
+    "/imgs/bear8.png",
+    "/imgs/bear9.png",
+    "/imgs/bear9.png",
+    "/imgs/bear10.png",
+  ];
   const [scrolled, setScrolled] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const handleScroll = (e) => {
@@ -27,7 +40,7 @@ export default function Home() {
     };
   });
   return (
-    <div>
+    <div className=" relative overflow-hidden">
       <Head>
         <title>Skater Bears</title>
         <meta name="description" content="Skater Bears NFTs" />
@@ -64,6 +77,13 @@ export default function Home() {
       <ContactUs />
       <Footer />
       <ModalMenu showMenu={showMenu} setShowMenu={setShowMenu} />
+      <div className="flex lg:w-[1920px]  absolute xl:bottom-0 lg:bottom-[-15px]  bottom-[140px] z-[1]">
+        {bears.map((b, i) => (
+          <div key={i} className="w-[10%] transform rotate-[-35deg]">
+            <Image src={b} alt="bear NFT" layout="responsive" width={458} height={500} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
