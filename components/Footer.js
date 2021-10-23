@@ -4,7 +4,7 @@ import Logo from "./Logo";
 import { Link as Anchor } from "react-scroll";
 import Button from "./Button";
 
-export default function Header({ showMenu, setShowMenu, scrolled }) {
+export default function Footer({ showMenu, setShowMenu }) {
   const links = [
     { href: "about-us", text: "About Us" },
     { href: "team", text: "Team" },
@@ -23,23 +23,22 @@ export default function Header({ showMenu, setShowMenu, scrolled }) {
       "cursor-pointer text-white font-bold  transform transition-all hover:scale-110 hover:text-crmsn ",
   };
   return (
-    <div
-      className={`w-full   px-10 lg:px-0 transition-all duration-500   fixed top-0 left-0 z-30 ${
-        scrolled ? "bg-black py-3" : "py-[30px]"
-      }`}
-    >
+    <div className="w-full  py-[30px] px-10 lg:px-0   bg-black">
       <div className="max-w-864 xl:max-w-1080 mx-auto justify-between flex items-center">
-        <div>
+        <div className="flex flex-col items-center">
           <Logo wide={false} />
+          <p className="text-gray-600 lg:hidden text-center py-5">
+            2021 © NZ Marketing Group Limited trading as Munchy. All Rights Reserved.
+          </p>
         </div>
-        <Burger showMenu={showMenu} setShowMenu={setShowMenu} />
+
         <div className="hidden lg:flex text-xs xl:text-base font-bold lg:gap-8 xl:gap-10 items-center">
           {links.map((l, i) => (
             <Anchor key={i} to={l.href} {...linkProps}>
               {l.text}
             </Anchor>
           ))}
-          <Button type="outlined" spcng={"px-4 "} text="Connect Wallet" />
+          <Button type="outlined" spcng="px-7 filter invert" text="Connect Wallet" />
         </div>
       </div>
     </div>

@@ -50,8 +50,8 @@ export default function CarouselHeroSection() {
           {bears.map((bear, i) => (
             <SwiperSlide key={i} className="w-full">
               <div className="w-full relative  ">
-                <div className="absolute z-[1] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 rounded-full bg-black/10"></div>
-                <div className="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full ">
+                <div className="absolute z-[1] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 pb-[66.67%] rounded-full bg-black/10"></div>
+                <div className="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] ">
                   <img className="w-full" src="/imgs/splash-bg.png" alt="splash" />
                 </div>
                 <Image

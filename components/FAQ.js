@@ -15,7 +15,7 @@ const faqs = [
 export default function FAQ() {
   return (
     <div className="bg-black px-10 py-14  overflow-hidden relative">
-      <div className="flex flex-col lg:grid grid-cols-2 gap-x-10 auto-rows-auto flex-wrap  relative z-[1]">
+      <div className="flex flex-col lg:grid grid-cols-2 gap-x-10 auto-rows-auto flex-wrap  relative z-[1] max-w-864 xl:max-w-1080 mx-auto">
         <div className="h-px bg-lghtGray w-full  opacity-50 flex-shrink-0"></div>
         <div className="hidden  lg:block h-px bg-lghtGray w-full opacity-50 flex-shrink-0"></div>
         {faqs.map((f, i) => (
