@@ -1,9 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Button from "./Button";
+import dynamic from "next/dynamic";
 import { Link as Anchor } from "react-scroll";
 import Socials from "./Socials";
-
+const DynamicComponent = dynamic(() => import("./ConnectWallet"), { ssr: false });
 export default function ModalMenu({ showMenu, setShowMenu }) {
   const links = [
     { href: "about-us", text: "About Us" },
@@ -44,7 +45,7 @@ export default function ModalMenu({ showMenu, setShowMenu }) {
       variants={cont}
       initial="hidden"
       animate={showMenu ? "show" : "hidden"}
-      className="bg-crmsn w-full z-20 fixed h-screen top-0 bottom-0 px-10 py-10   lg:hidden pt-[122px]"
+      className="bg-crmsn w-full z-20 fixed h-screen top-0 bottom-0 px-10 py-10 flex flex-col justify-between   lg:hidden pt-[122px]"
     >
       {links.map((l, i) => (
         <motion.div key={i} variants={item} className="text-3xl mb-5">
@@ -59,10 +60,10 @@ export default function ModalMenu({ showMenu, setShowMenu }) {
           </Anchor>
         </motion.div>
       ))}
-      <motion.div key={11} variants={item}>
-        <Button type="outlined" spcng="px-7 " text="Connect Wallet" />
+      <motion.div key={11} variants={item} className="mb-auto">
+        <DynamicComponent />
       </motion.div>
-      <motion.div key={12} variants={item} className="pt-5">
+      <motion.div key={12} variants={item} className="">
         <Socials big />{" "}
       </motion.div>
     </motion.div>

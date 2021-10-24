@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Burger from "./Burger";
 import Logo from "./Logo";
 import { Link as Anchor } from "react-scroll";
+import dynamic from "next/dynamic";
 import Button from "./Button";
 import Socials from "./Socials";
 
+const DynamicComponent = dynamic(() => import("./ConnectWallet"), { ssr: false });
 export default function Header({ showMenu, setShowMenu, scrolled }) {
+  const [rendered, setRendered] = useState(false);
+  useEffect(() => {
+    window && setRendered(true);
+  }, []);
   const links = [
     { href: "about-us", text: "About Us" },
     { href: "team", text: "Team" },
@@ -41,7 +47,9 @@ export default function Header({ showMenu, setShowMenu, scrolled }) {
             </Anchor>
           ))}
           <Socials />
-          <Button type="outlined" spcng={"px-4 "} text="Connect Wallet" />
+          {rendered && <DynamicComponent />}
+          {/* <ConnectWallet /> */}
+          {/* <Button type="outlined" spcng={"px-4 "} text="Connect Wallet" /> */}
         </div>
       </div>
     </div>

@@ -69,3 +69,33 @@ body {
 .carousel2 .swiper-slide-next,
 .carousel2 .swiper-slide-prev {
 }
+
+.connect-wallet {
+  z-index: 40;
+  /* text-align: center; */
+}
+
+.icon-logo {
+  /* width: 80%; */
+  height: 80%;
+}
+
+.spacer {
+  height: 5px;
+}
+
+.wallet-connect-button {
+  width: 100% !important;
+}
+
+.connect-modal {
+  background-color: #21ba44 !important;
+}
+.cnct-wallet {
+  background: transparent !important;
+  padding: 0 !important;
+}
+.pop-over {
+  position: relative !important;
+  z-index: 40;
+}
