@@ -65,7 +65,7 @@ export default function Home() {
     }
   };
 
-  const connectStoic = async (e) => {
+  const connectStoic = async (StoicIdentity) => {
     if (window) {
       await StoicIdentity.load();
       let identity = await StoicIdentity.connect();

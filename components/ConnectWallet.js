@@ -49,7 +49,12 @@ function ConnectWallet({ big, userAddress, connectWallet, connectStoic }) {
                     Plug
                   </Button>
                   <div className="spacer" />
-                  <Button className="wallet-connect-button" onClick={connectStoic}>
+                  <Button
+                    className="wallet-connect-button"
+                    onClick={() => {
+                      connectStoic(StoicIdentity);
+                    }}
+                  >
                     <img className="icon-logo" src="/imgs/stoic-logo.png" /> Connect with
                     Stoic
                   </Button>
