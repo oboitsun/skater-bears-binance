@@ -26,6 +26,7 @@ export default function Button({
 
   return (
     <button
+      {...props}
       className={`${spcng}   ${cmn} ${styles[type].hovered}   ${
         styles[type].unhovered
       }  ${addClass ? addClass : ""}`}

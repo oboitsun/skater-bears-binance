@@ -10,8 +10,11 @@ import {
   Portal,
   ChakraProvider,
 } from "@chakra-ui/react";
+import ComingSoonPopUp from "./ComingSoonPopUp";
 
 function ConnectWallet({
+  showPopup,
+  setShowPopup,
   header = false,
   big,
   userAddress,
@@ -75,7 +78,15 @@ function ConnectWallet({
                 -6
               )}`}</p>
             )}
-            <Button className="connect-modal">Mint NFT</Button>
+            <CWalletButton
+              onClick={() => {
+                setShowPopup(true);
+              }}
+              text="Mint NFT"
+              spcng="px-9"
+              icon={false}
+              type="filled"
+            />
           </div>
         )}
       </div>

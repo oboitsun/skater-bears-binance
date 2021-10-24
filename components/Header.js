@@ -8,6 +8,8 @@ import Socials from "./Socials";
 
 const DynamicComponent = dynamic(() => import("./ConnectWallet"), { ssr: false });
 export default function Header({
+  showPopup,
+  setShowPopup,
   userAddress,
   connectWallet,
   connectStoic,
@@ -56,6 +58,8 @@ export default function Header({
           <Socials />
           {rendered && (
             <DynamicComponent
+              showPopup={showPopup}
+              setShowPopup={setShowPopup}
               header
               connectStoic={connectStoic}
               connectWallet={connectWallet}

@@ -10,6 +10,7 @@ import Roadmap from "../components/Roadmap";
 import Team from "../components/Team";
 import Footer from "../components/Footer";
 import ModalMenu from "../components/ModalMenu";
+import ComingSoonPopUp from "../components/ComingSoonPopUp";
 
 export default function Home() {
   const bears = [
@@ -73,7 +74,7 @@ export default function Home() {
       console.log(identity.getPrincipal().toText());
     }
   };
-
+  const [showPopup, setShowPopup] = useState(false);
   return (
     <div className=" relative overflow-hidden">
       <div id="top"></div>
@@ -82,8 +83,10 @@ export default function Home() {
         <meta name="description" content="Skater Bears NFTs" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="w-full h-full lg:h-[854px] relative    bg-black overflow-hidden">
+      <div className="w-full h-full max-h-[854px] lg:pb-10 relative    bg-black overflow-hidden">
         <Header
+          showPopup={showPopup}
+          setShowPopup={setShowPopup}
           connectStoic={connectStoic}
           connectWallet={connectWallet}
           userAddress={userAddress}
@@ -93,6 +96,8 @@ export default function Home() {
         />
         <div className="w-full relative z-[1]">
           <HeroSection
+            showPopup={showPopup}
+            setShowPopup={setShowPopup}
             connectStoic={connectStoic}
             connectWallet={connectWallet}
             userAddress={userAddress}
@@ -123,10 +128,14 @@ export default function Home() {
       <FAQ />
       <ContactUs />
       <Footer
+        showPopup={showPopup}
+        setShowPopup={setShowPopup}
         connectStoic={connectStoic}
         connectWallet={connectWallet}
         userAddress={userAddress}
       />
+
+      <ComingSoonPopUp showPopup={showPopup} setShowPopup={setShowPopup} />
       <ModalMenu showMenu={showMenu} setShowMenu={setShowMenu} />
       <div className="flex lg:w-[1920px]  absolute xl:bottom-0 lg:bottom-[-15px]  bottom-[140px] z-[1]">
         {bears.map((b, i) => (
