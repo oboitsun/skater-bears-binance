@@ -1,10 +1,11 @@
 import React from "react";
-import Image from "next/image";
+
 import Logo from "./Logo";
 import { Link as Anchor } from "react-scroll";
-import Button from "./Button";
+import dynamic from "next/dynamic";
 import Socials from "./Socials";
 
+const DynamicComponent = dynamic(() => import("./ConnectWallet"), { ssr: false });
 export default function Footer({ showMenu, setShowMenu }) {
   const links = [
     { href: "about-us", text: "About Us" },
@@ -44,7 +45,7 @@ export default function Footer({ showMenu, setShowMenu }) {
               {l.text}
             </Anchor>
           ))}
-          <Button type="outlined" spcng="px-7 " text="Connect Wallet" />
+          <DynamicComponent />
         </div>
       </div>
     </div>

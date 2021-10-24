@@ -85,6 +85,7 @@ body {
 }
 
 .wallet-connect-button {
+  padding: 4px 16px !important;
   width: 100% !important;
 }
 
@@ -98,4 +99,7 @@ body {
 .pop-over {
   position: relative !important;
   z-index: 40;
+}
+.chakra-popover__popper {
+  z-index: 30 !important;
 }

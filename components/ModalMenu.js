@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Button from "./Button";
+
 import dynamic from "next/dynamic";
 import { Link as Anchor } from "react-scroll";
 import Socials from "./Socials";
-const DynamicComponent = dynamic(() => import("./ConnectWallet"), { ssr: false });
+const DynamicComponent = dynamic(() => import("./ConnectWalletMob"), { ssr: false });
 export default function ModalMenu({ showMenu, setShowMenu }) {
   const links = [
     { href: "about-us", text: "About Us" },
@@ -63,7 +63,7 @@ export default function ModalMenu({ showMenu, setShowMenu }) {
       <motion.div key={11} variants={item} className="mb-auto">
         <DynamicComponent />
       </motion.div>
-      <motion.div key={12} variants={item} className="">
+      <motion.div key={12} variants={item} className="  ">
         <Socials big />{" "}
       </motion.div>
     </motion.div>

@@ -2,7 +2,9 @@ import React from "react";
 import Button from "./Button";
 import { motion } from "framer-motion";
 import Timer from "./Timer";
+import dynamic from "next/dynamic";
 
+const DynamicComponent = dynamic(() => import("./ConnectWallet"), { ssr: false });
 export default function WelcomeTo() {
   const cont = {
     show: {
@@ -35,7 +37,7 @@ export default function WelcomeTo() {
         <Timer />
       </motion.div>
       <motion.div variants={item} key={5}>
-        <Button type="filled" text="Get your Own Bear" icon={false} />
+        <DynamicComponent big />
       </motion.div>
     </motion.div>
   );

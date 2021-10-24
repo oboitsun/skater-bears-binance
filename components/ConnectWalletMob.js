@@ -11,7 +11,7 @@ import {
   ChakraProvider,
 } from "@chakra-ui/react";
 
-function ConnectWallet() {
+function ConnectWalletMob() {
   const [userAddress, setUserAddress] = useState("");
   const connectWallet = async () => {
     if (window) {
@@ -50,29 +50,15 @@ function ConnectWallet() {
     <ChakraProvider>
       <div className="connect-wallet">
         {!userAddress ? (
-          <Popover>
-            <PopoverTrigger>
-              <Button className="cnct-wallet">
-                {" "}
-                <CWalletButton text="Connect wallet" type="outlined" />
-              </Button>
-            </PopoverTrigger>
-            <Portal>
-              <PopoverContent className="pop-over">
-                <PopoverBody>
-                  <Button className="wallet-connect-button" onClick={connectWallet}>
-                    <img className="icon-logo" src="/imgs/plug-logo.jpg" /> Connect with
-                    Plug
-                  </Button>
-                  <div className="spacer" />
-                  <Button className="wallet-connect-button" onClick={connectStoic}>
-                    <img className="icon-logo" src="/imgs/stoic-logo.png" /> Connect with
-                    Stoic
-                  </Button>
-                </PopoverBody>
-              </PopoverContent>
-            </Portal>
-          </Popover>
+          <>
+            <Button className="wallet-connect-button" onClick={connectWallet}>
+              <img className="icon-logo" src="/imgs/plug-logo.jpg" /> Connect with Plug
+            </Button>
+            <div className="spacer" />
+            <Button className="wallet-connect-button" onClick={connectStoic}>
+              <img className="icon-logo" src="/imgs/stoic-logo.png" /> Connect with Stoic
+            </Button>
+          </>
         ) : (
           <div>
             <Button className="connect-modal">{`${userAddress.slice(
@@ -88,4 +74,4 @@ function ConnectWallet() {
   );
 }
 
-export default ConnectWallet;
+export default ConnectWalletMob;
