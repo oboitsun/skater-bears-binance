@@ -11,7 +11,13 @@ import {
   ChakraProvider,
 } from "@chakra-ui/react";
 
-function ConnectWallet({ big, userAddress, connectWallet, connectStoic }) {
+function ConnectWallet({
+  header = false,
+  big,
+  userAddress,
+  connectWallet,
+  connectStoic,
+}) {
   return (
     <ChakraProvider>
       <div className="">
@@ -63,9 +69,12 @@ function ConnectWallet({ big, userAddress, connectWallet, connectStoic }) {
             </Portal>
           </Popover>
         ) : (
-          <div className="text-white text-xs font-normal">
-            {/* <p className="">{`${userAddress.slice(0, 8)}...${userAddress.slice(-6)}`}</p> */}
-
+          <div className="text-white text-xs font-normal flex flex-col items-center justify-start">
+            {header && (
+              <p className="pb-1">{`${userAddress.slice(0, 8)}...${userAddress.slice(
+                -6
+              )}`}</p>
+            )}
             <Button className="connect-modal">Mint NFT</Button>
           </div>
         )}

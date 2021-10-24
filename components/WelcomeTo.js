@@ -36,7 +36,7 @@ export default function WelcomeTo({ connectStoic, connectWallet, userAddress }) 
       <motion.div variants={item} key={4}>
         <Timer />
       </motion.div>
-      <motion.div variants={item} key={5} className="">
+      <motion.div variants={item} key={5} className="flex justify-start">
         <DynamicComponent
           connectStoic={connectStoic}
           connectWallet={connectWallet}

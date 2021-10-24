@@ -62,7 +62,7 @@ export default function Team() {
         >
           {team.map((t, i) => (
             <motion.div variants={item} key={i} className="flex flex-col w-full">
-              <div className="w-full relative z-[1]">
+              <div className="w-full relative z-[1] hover:scale-105 transition-transform">
                 <Image
                   src={t.src}
                   alt={t.name}

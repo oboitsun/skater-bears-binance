@@ -56,6 +56,7 @@ export default function Header({
           <Socials />
           {rendered && (
             <DynamicComponent
+              header
               connectStoic={connectStoic}
               connectWallet={connectWallet}
               userAddress={userAddress}

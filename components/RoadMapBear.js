@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function RoadMapBear({ src, bg, odd }) {
   return (
     <div
-      className={`overflow-hidden ${
+      className={`overflow-hidden hover:-translate-y-10 transition-transform ${
         odd ? "right-[3%]" : "left-[3%]"
       } relative lg:w-full lg:pb-[100%] w-[55%] pb-[55%] h-full  transform ${
         !odd && "scale-x-[-1] lg:col-start-2 row-start-1"
