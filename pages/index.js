@@ -76,6 +76,7 @@ export default function Home() {
 
   return (
     <div className=" relative overflow-hidden">
+      <div id="top"></div>
       <Head>
         <title>Skater Bears</title>
         <meta name="description" content="Skater Bears NFTs" />

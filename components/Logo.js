@@ -1,7 +1,15 @@
 import React from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { Link as Anchor } from "react-scroll";
+
 export default function Logo({ wide }) {
+  const linkProps = {
+    spy: true,
+    smooth: true,
+    offset: -100,
+    duration: 500,
+    activeClass: "active",
+  };
   const svg = {
     show: {
       scale: 1,
@@ -15,7 +23,7 @@ export default function Logo({ wide }) {
     hidden: { scale: 0, opacity: 0, pathLength: 1, transition: { duration: 1 } },
   };
   return (
-    <div className="w-[93px] lg:w-[139px] xl:w-[183px]">
+    <Anchor to="top" {...linkProps} className="block w-[93px] lg:w-[139px] xl:w-[183px]">
       <Image
         src="/imgs/logo.png"
         layout="responsive"
@@ -23,6 +31,6 @@ export default function Logo({ wide }) {
         height={71}
         alt="SNEAKER BEARS"
       />
-    </div>
+    </Anchor>
   );
 }
