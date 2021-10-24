@@ -31,7 +31,7 @@ export default function Home() {
     if (e.target.scrollingElement.scrollTop < 10) setScrolled(false);
     if (e.target.scrollingElement.scrollTop >= 10) setScrolled(true);
   };
-
+  //scrolling listener
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -39,6 +39,41 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll);
     };
   });
+  //connect wallet functions
+  const [userAddress, setUserAddress] = useState("");
+  const connectWallet = async (e) => {
+    if (window) {
+      // Canister Ids
+      const nnsCanisterId = "qoctq-giaaa-aaaaa-aaaea-cai";
+
+      // Whitelist
+      const whitelist = [nnsCanisterId];
+
+      // Make the request
+      const isConnected =
+        window &&
+        (await window.ic.plug.requestConnect({
+          whitelist,
+        }));
+
+      // Get the user principal id
+      const principalId = window && (await window.ic.plug.agent.getPrincipal());
+
+      setUserAddress(principalId.toText());
+
+      console.log(`Plug's user principal Id is ${principalId}`);
+    }
+  };
+
+  const connectStoic = async (e) => {
+    if (window) {
+      await StoicIdentity.load();
+      let identity = await StoicIdentity.connect();
+      setUserAddress(identity.getPrincipal().toText());
+      console.log(identity.getPrincipal().toText());
+    }
+  };
+
   return (
     <div className=" relative overflow-hidden">
       <Head>
@@ -47,9 +82,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="w-full h-full lg:h-[854px] relative    bg-black overflow-hidden">
-        <Header showMenu={showMenu} setShowMenu={setShowMenu} scrolled={scrolled} />
+        <Header
+          connectStoic={connectStoic}
+          connectWallet={connectWallet}
+          userAddress={userAddress}
+          showMenu={showMenu}
+          setShowMenu={setShowMenu}
+          scrolled={scrolled}
+        />
         <div className="w-full relative z-[1]">
-          <HeroSection />
+          <HeroSection
+            connectStoic={connectStoic}
+            connectWallet={connectWallet}
+            userAddress={userAddress}
+          />
         </div>
 
         <div className="absolute w-full h-full top-0">
@@ -75,7 +121,11 @@ export default function Home() {
       <Roadmap />
       <FAQ />
       <ContactUs />
-      <Footer />
+      <Footer
+        connectStoic={connectStoic}
+        connectWallet={connectWallet}
+        userAddress={userAddress}
+      />
       <ModalMenu showMenu={showMenu} setShowMenu={setShowMenu} />
       <div className="flex lg:w-[1920px]  absolute xl:bottom-0 lg:bottom-[-15px]  bottom-[140px] z-[1]">
         {bears.map((b, i) => (

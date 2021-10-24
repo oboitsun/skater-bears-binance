@@ -7,7 +7,14 @@ import Button from "./Button";
 import Socials from "./Socials";
 
 const DynamicComponent = dynamic(() => import("./ConnectWallet"), { ssr: false });
-export default function Header({ showMenu, setShowMenu, scrolled }) {
+export default function Header({
+  userAddress,
+  connectWallet,
+  connectStoic,
+  showMenu,
+  setShowMenu,
+  scrolled,
+}) {
   const [rendered, setRendered] = useState(false);
   useEffect(() => {
     window && setRendered(true);
@@ -47,9 +54,13 @@ export default function Header({ showMenu, setShowMenu, scrolled }) {
             </Anchor>
           ))}
           <Socials />
-          {rendered && <DynamicComponent />}
-          {/* <ConnectWallet /> */}
-          {/* <Button type="outlined" spcng={"px-4 "} text="Connect Wallet" /> */}
+          {rendered && (
+            <DynamicComponent
+              connectStoic={connectStoic}
+              connectWallet={connectWallet}
+              userAddress={userAddress}
+            />
+          )}
         </div>
       </div>
     </div>

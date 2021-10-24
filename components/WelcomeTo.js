@@ -5,7 +5,7 @@ import Timer from "./Timer";
 import dynamic from "next/dynamic";
 
 const DynamicComponent = dynamic(() => import("./ConnectWallet"), { ssr: false });
-export default function WelcomeTo() {
+export default function WelcomeTo({ connectStoic, connectWallet, userAddress }) {
   const cont = {
     show: {
       x: 0,
@@ -36,8 +36,12 @@ export default function WelcomeTo() {
       <motion.div variants={item} key={4}>
         <Timer />
       </motion.div>
-      <motion.div variants={item} key={5}>
-        <DynamicComponent big />
+      <motion.div variants={item} key={5} className="">
+        <DynamicComponent
+          connectStoic={connectStoic}
+          connectWallet={connectWallet}
+          userAddress={userAddress}
+        />
       </motion.div>
     </motion.div>
   );

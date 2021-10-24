@@ -11,48 +11,10 @@ import {
   ChakraProvider,
 } from "@chakra-ui/react";
 
-function ConnectWallet({ big }) {
-  const [userAddress, setUserAddress] = useState("");
-  const connectWallet = async (e) => {
-    e.stopPropagation();
-    if (window) {
-      // Canister Ids
-      const nnsCanisterId = "qoctq-giaaa-aaaaa-aaaea-cai";
-
-      // Whitelist
-      const whitelist = [nnsCanisterId];
-
-      // Make the request
-      const isConnected =
-        window &&
-        (await window.ic.plug.requestConnect({
-          whitelist,
-        }));
-
-      // Get the user principal id
-      const principalId = window && (await window.ic.plug.agent.getPrincipal());
-
-      setUserAddress(principalId.toText());
-      setShowPop(false);
-      console.log(`Plug's user principal Id is ${principalId}`);
-    }
-  };
-
-  const connectStoic = async (e) => {
-    e.stopPropagation();
-    if (window) {
-      await StoicIdentity.load();
-      let identity = await StoicIdentity.connect();
-      setUserAddress(identity.getPrincipal().toText());
-      console.log(identity.getPrincipal().toText());
-      setShowPop(false);
-    }
-  };
-  const [pop, setShowPop] = useState(false);
-  const popOver = useRef(null);
+function ConnectWallet({ big, userAddress, connectWallet, connectStoic }) {
   return (
     <ChakraProvider>
-      <div className="connect-wallet">
+      <div className="">
         {!userAddress ? (
           <Popover>
             <PopoverTrigger>
@@ -96,12 +58,9 @@ function ConnectWallet({ big }) {
             </Portal>
           </Popover>
         ) : (
-          <div>
-            <Button className="connect-modal">{`${userAddress.slice(
-              0,
-              8
-            )}...${userAddress.slice(-6)}`}</Button>
-            <div className="spacer" />
+          <div className="text-white text-xs font-normal">
+            {/* <p className="">{`${userAddress.slice(0, 8)}...${userAddress.slice(-6)}`}</p> */}
+
             <Button className="connect-modal">Mint NFT</Button>
           </div>
         )}
