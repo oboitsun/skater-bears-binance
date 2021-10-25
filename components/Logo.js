@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+
 import { Link as Anchor } from "react-scroll";
 
 export default function Logo({ wide }) {
@@ -24,9 +24,9 @@ export default function Logo({ wide }) {
   };
   return (
     <Anchor to="top" {...linkProps} className="block w-[93px] lg:w-[139px] xl:w-[183px]">
-      <Image
+      <img
+        className="w-full"
         src="/imgs/logo.png"
-        layout="responsive"
         width={183}
         height={71}
         alt="SNEAKER BEARS"

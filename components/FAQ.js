@@ -1,6 +1,6 @@
 import React from "react";
 import FaqItem from "./FaqItem";
-import Image from "next/image";
+
 const faqs = [
   { qstn: "How do I buy a Skater Bears?", answr: "The Answer" },
   { qstn: "What Blockhain and technology are Skater Bears on?", answr: "The Answer" },
@@ -27,7 +27,11 @@ export default function FAQ() {
       </div>
 
       <div className="absolute w-full h-full top-0 left-0">
-        <Image src="/imgs/faq.png" layout="fill" objectFit="cover" alt="hero section" />
+        <img
+          className="w-full h-full object-cover"
+          src="/imgs/faq.png"
+          alt="hero section"
+        />
       </div>
     </div>
   );

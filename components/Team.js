@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 const team = [
@@ -63,10 +62,10 @@ export default function Team() {
           {team.map((t, i) => (
             <motion.div variants={item} key={i} className="flex flex-col w-full">
               <div className="w-full relative z-[1] hover:scale-105 transition-transform">
-                <Image
+                <img
+                  className="w-full"
                   src={t.src}
                   alt={t.name}
-                  layout="responsive"
                   width={239}
                   height={253}
                 />

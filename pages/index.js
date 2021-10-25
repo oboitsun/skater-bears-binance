@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Image from "next/image";
+
 import CardsSection from "../components/CardsSection";
 import ContactUs from "../components/ContactUs";
 import FAQ from "../components/FAQ";
@@ -83,7 +83,7 @@ export default function Home() {
         <meta name="description" content="Skater Bears NFTs" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="w-full h-full max-h-[854px] lg:pb-10 relative    bg-black overflow-hidden">
+      <div className="w-full h-full  lg:max-h-[854px] lg:pb-10 relative    bg-black overflow-hidden">
         <Header
           showPopup={showPopup}
           setShowPopup={setShowPopup}
@@ -105,18 +105,16 @@ export default function Home() {
         </div>
 
         <div className="absolute w-full h-full top-0">
-          <Image
+          <img
+            className="w-full object-cover"
             src="/imgs/hero-back.png"
-            layout="fill"
-            objectFit="cover"
             alt="hero section"
           />
         </div>
         <div className="lg:hidden absolute w-full h-full top-0">
-          <Image
+          <img
+            className="block w-full object-cover"
             src="/imgs/hero.png"
-            layout="fill"
-            objectFit="cover"
             alt="hero section"
           />
         </div>
@@ -137,10 +135,16 @@ export default function Home() {
 
       <ComingSoonPopUp showPopup={showPopup} setShowPopup={setShowPopup} />
       <ModalMenu showMenu={showMenu} setShowMenu={setShowMenu} />
-      <div className="flex lg:w-[1920px]  absolute xl:bottom-0 lg:bottom-[-15px]  bottom-[140px] z-[1]">
+      <div className="flex w-[400%] lg:w-[1920px]  absolute xl:bottom-0 lg:bottom-[-15px]  bottom-[150px] z-[1] left-1/2 transform -translate-x-1/2">
         {bears.map((b, i) => (
           <div key={i} className="w-[10%] transform rotate-[-35deg]">
-            <Image src={b} alt="bear NFT" layout="responsive" width={458} height={500} />
+            <img
+              className="block w-full"
+              src={b}
+              alt="bear NFT"
+              width={458}
+              height={500}
+            />
           </div>
         ))}
       </div>

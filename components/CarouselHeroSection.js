@@ -5,8 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import Button from "./Button";
-import Image from "next/image";
+
 const bears = [
   { src: "/imgs/bear1.png", name: "" },
   { src: "/imgs/bear2.png", name: "" },
@@ -55,12 +54,10 @@ export default function CarouselHeroSection() {
                 <div className="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[75%] h-[75%] ">
                   <img className="w-full" src="/imgs/splash-bg.png" alt="splash" />
                 </div>
-                <Image
-                  priority={true}
-                  className="z-[3] relative"
+                <img
+                  className="z-[3] relative w-full"
                   src={bear.src}
                   alt="NFT Bear"
-                  layout="responsive"
                   width={192}
                   height={210}
                 />

@@ -4,8 +4,8 @@ import { useInView } from "react-intersection-observer";
 export default function RoadmapWrapper({ children }) {
   const { ref, inView } = useInView({ threshold: 0, triggerOnce: true });
   const cont = {
-    show: {},
-    hidden: {},
+    show: { opacity: 1 },
+    hidden: { opacity: 0 },
   };
 
   return (

@@ -1,8 +1,6 @@
 import React from "react";
 import RoadMapBear from "./RoadMapBear";
 import RoadMapParagraph from "./RoadMapParagraph";
-import Image from "next/image";
-import RoadmapWrapper from "./RoadmapWrapper";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 export default function Roadmap() {
@@ -68,7 +66,7 @@ export default function Roadmap() {
   const item = {
     show: {
       opacity: 1,
-      transition: { duration: 0.3, staggerChildren: 0.1, delayChildren: 0.3 },
+      transition: { duration: 0.3, staggerChildren: 0.5, delayChildren: 0.5 },
     },
     hidden: { opacity: 0, transition: { duration: 1 } },
   };
@@ -100,7 +98,7 @@ export default function Roadmap() {
               !point.odd && "lg:col-start-2 row-start-1"
             }`}
           >
-            <RoadMapBear src={point.bearSrc} bg={point.bg} odd={point.odd} />
+            <RoadMapBear delay={i} src={point.bearSrc} bg={point.bg} odd={point.odd} />
           </motion.div>
           <motion.div
             variants={item1}
@@ -114,10 +112,10 @@ export default function Roadmap() {
               variants={item}
               className={`hidden lg:block absolute ${point.arrow.pos} transform -translate-x-1/2`}
             >
-              <Image
+              <img
+                className="w-full block"
                 src={point.arrow.src}
                 alt="arrow"
-                layout="responsive"
                 width={point.arrow.w}
                 height={point.arrow.h}
               />
@@ -127,46 +125,4 @@ export default function Roadmap() {
       ))}
     </motion.div>
   );
-}
-{
-  /* <div className="w-full flex flex-col lg:grid grid-cols-[1fr,42%] gap-x-20 items-center gap-y-6 mb-10 relative">
-<RoadMapBear src="/imgs/bear10.png" bg="bg-[#FFF6F0]" />
-<RoadMapParagraph
-  month="august 2021"
-  paragraph={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries`}
-/>
-<div className="hidden lg:block absolute w-[20%] top-[70%] right-[45%] transform translate-x-1/2 scale-x-[-1]">
-  <Image
-    src="/imgs/arrow-down.png"
-    alt="arrow"
-    layout="responsive"
-    width={201}
-    height={240}
-  />
-</div>
-</div>
-<div className="w-full flex flex-col lg:grid grid-cols-[42%,1fr] gap-x-20 items-center gap-y-6 mb-10 relative">
-<RoadMapBear src="/imgs/bear5.png" bg="bg-[#F0FAFF]" odd />
-<RoadMapParagraph
-  odd
-  month="september 2021"
-  paragraph={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries`}
-/>
-<div className="hidden lg:block absolute w-[25%] top-[80%] left-[46%] transform -translate-x-1/2">
-  <Image
-    src="/imgs/arrow-last.png"
-    alt="arrow"
-    layout="responsive"
-    width={315}
-    height={306}
-  />
-</div>
-</div>
-<div className="w-full flex flex-col lg:grid grid-cols-[1fr,42%] gap-x-20 items-center gap-y-6 mb-10 relative">
-<RoadMapBear src="/imgs/bear6.png" bg="bg-[#F7F7F7]" />
-<RoadMapParagraph
-  month="october 2021"
-  paragraph={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries`}
-/>
-</div> */
 }
