@@ -20,7 +20,7 @@ export default function Roadmap() {
       },
       cols: "grid-cols-[42%,1fr]",
       odd: true,
-      month: "October 2021",
+      month: "Octo-bear 2021",
       p: `The vision of Skater Bears begins, and preparation for the project is
       underway.`,
     },
@@ -35,7 +35,7 @@ export default function Roadmap() {
       },
       cols: "grid-cols-[1fr,42%]",
       odd: false,
-      month: "November 2021",
+      month: "Novem-bear 2021",
       p: `Development, design is underway for the project and the first set of bears
       start to be minted!`,
     },
@@ -50,7 +50,7 @@ export default function Roadmap() {
       },
       cols: "grid-cols-[42%,1fr]",
       odd: true,
-      month: "december 2021",
+      month: "decem-bear 2021",
       p: `The final amount of bears are minted and are now available on the
       marketplace.`,
     },
