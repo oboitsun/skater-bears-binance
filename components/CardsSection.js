@@ -68,9 +68,9 @@ export default function CardsSection() {
           key={3}
           className="font-medium text-xs lg:text-sm lg:leading-loose lg:max-w-[372px] leading-loose pb-4 lg:py-4 xl:text-base xl:leading-loose xl:max-w-[415px]"
         >
-          Skater Bears is a game centered around breedable, and oh-so-adorable creatures
-          we call Skater Bears! Each cat is one-of-a-kind and 100% owned by you; it cannot
-          be replicated, taken away, or destroyed.
+          Skater Bears are 8888 uniquely generated bears who love to skate, all living on
+          the block chain. They have multiple traits, different boards and most of all
+          love to skate!
         </motion.p>
         <motion.div variants={item} key={4}>
           {" "}
