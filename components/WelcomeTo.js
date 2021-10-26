@@ -37,7 +37,7 @@ export default function WelcomeTo({
         THE skater
       </motion.p>
       <motion.p variants={item} key={3} className="uppercase">
-        bears
+        bears <span className="text-white">club</span>
       </motion.p>
       <motion.div variants={item} key={4}>
         <Timer />

@@ -10,9 +10,9 @@ export default function ContactUs() {
           <p className="text-center lg:text-left  uppercase font-extrabold text-[32px] leading-[38px] lg:text-[64px] lg:leading-[76px] mb-4">
             get in touch with us
           </p>
-          <p className=" text-center lg:text-left text-xs font-medium leading-loose lg:leading-loose lg:text-base">
+          {/* <p className=" text-center lg:text-left text-xs font-medium leading-loose lg:leading-loose lg:text-base">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          </p>
+          </p> */}
         </div>
         <form className="w-full flex flex-col gap-5">
           <FormInput plchldr="Name" type="text" />

@@ -20,8 +20,9 @@ export default function Roadmap() {
       },
       cols: "grid-cols-[42%,1fr]",
       odd: true,
-      month: "july 2021",
-      p: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries`,
+      month: "October 2021",
+      p: `The vision of Skater Bears begins, and preparation for the project is
+      underway.`,
     },
     {
       bg: "bg-[#FFF6F0]",
@@ -34,8 +35,9 @@ export default function Roadmap() {
       },
       cols: "grid-cols-[1fr,42%]",
       odd: false,
-      month: "August 2021",
-      p: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries`,
+      month: "November 2021",
+      p: `Development, design is underway for the project and the first set of bears
+      start to be minted!`,
     },
     {
       bg: "bg-[#F0FAFF]",
@@ -48,8 +50,9 @@ export default function Roadmap() {
       },
       cols: "grid-cols-[42%,1fr]",
       odd: true,
-      month: "september 2021",
-      p: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries`,
+      month: "december 2021",
+      p: `The final amount of bears are minted and are now available on the
+      marketplace.`,
     },
     {
       bg: "bg-[#F7F7F7]",
@@ -57,8 +60,8 @@ export default function Roadmap() {
       arrow: false,
       cols: "grid-cols-[1fr,42%]",
       odd: false,
-      month: "october 2021",
-      p: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries`,
+      month: "JANUARY 2022",
+      p: `Future development, airdrops, rewards and potential game is in the works.`,
     },
   ];
   const { ref, inView } = useInView({ threshold: 0, triggerOnce: false });

@@ -2,14 +2,39 @@ import React from "react";
 import FaqItem from "./FaqItem";
 
 const faqs = [
-  { qstn: "How do I buy a Skater Bears?", answr: "The Answer" },
-  { qstn: "What Blockhain and technology are Skater Bears on?", answr: "The Answer" },
-  { qstn: "What can I do with once I get my Skaters Bears NFT?", answr: "The Answer" },
-  { qstn: "How many Skater Bears caan I buy?", answr: "The Answer" },
-  { qstn: "What wallet do I need to be able to connect to buy?", answr: "The Answer" },
+  {
+    qstn: "How do I buy a Skater Bears?",
+    answr: `It’s simple, just press the “Connect Wallet” button, and connect with either
+  STOIC Wallet or Plug. You will then be able to “Mint” your own Skater Bear
+  using the “Mint Now” button. Please note there is a limit of 20 Skater
+  Bears per person.`,
+  },
+  {
+    qstn: "What Blockhain and technology are Skater Bears on?",
+    answr: `We have minted the Skater Bears on the DFINITY Internet Computer
+  blockchain, in which we believe is perfect for the project.`,
+  },
+  {
+    qstn: "What can I do with once I get my Skaters Bears NFT?",
+    answr: `At this stage you can collect it, like other NFT’s with the high possibility of 
+  the value of it increasing. We believe that not only is it fun, cool artwork,
+  but there could be potential in the future to turn Skater Bears into
+  potentially a game, or something even larger in the future.`,
+  },
+  {
+    qstn: "How many Skater Bears caan I buy?",
+    answr: `You can buy only 20 Skater Bears per person. There will be other ones
+  available on the secondary market place in which you can buy and sell
+  your Skater Bears as you wish.`,
+  },
+  {
+    qstn: "What wallet do I need to be able to connect to buy?",
+    answr: `You can connect using STOIC Wallet or Plug Wallet at this time.`,
+  },
   {
     qstn: "What are the future plans for the Skaters Bears project?",
-    answr: "The Answer",
+    answr: `We have plans to make a potential game, donations, airdrops and rewards
+    - so stay tuned!`,
   },
 ];
 export default function FAQ() {

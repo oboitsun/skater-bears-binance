@@ -52,33 +52,25 @@ export default function CarouselCards() {
         <SwiperSlide>
           <div className="flex flex-col items-center w-full h-full">
             <img className="w-full" src="/imgs/postcard1.png" alt="card" />
-            <p className="font-bold text-xs lg:text-2xl text-center my-auto">
-              Blueberry Skater
-            </p>
+            <p className="font-bold text-xs lg:text-2xl text-center my-auto"></p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex flex-col items-center w-full h-full">
             <img className="w-full" src="/imgs/postcard2.png" alt="card" />
-            <p className="font-bold text-xs lg:text-2xl text-center my-auto">
-              Blueberry Skater
-            </p>
+            <p className="font-bold text-xs lg:text-2xl text-center my-auto"></p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex flex-col items-center w-full h-full">
             <img className="w-full" src="/imgs/postcard3.png" alt="card" />
-            <p className="font-bold text-xs lg:text-2xl text-center my-auto">
-              Blueberry Skater
-            </p>
+            <p className="font-bold text-xs lg:text-2xl text-center my-auto"></p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex flex-col items-center w-full h-full">
             <img className="w-full" src="/imgs/postcard4.png" alt="card" />
-            <p className="font-bold text-xs lg:text-2xl text-center my-auto">
-              Blueberry Skater
-            </p>
+            <p className="font-bold text-xs lg:text-2xl text-center my-auto"></p>
           </div>
         </SwiperSlide>
       </Swiper>

@@ -4,23 +4,23 @@ import { useInView } from "react-intersection-observer";
 const team = [
   {
     src: "/imgs/postcard1.png",
-    name: "Bold Blueberry",
+    name: "FUZZ",
     position: "CEO",
   },
   {
     src: "/imgs/postcard2.png",
-    name: "Pineapple",
+    name: "BROWNIE",
     position: "Marketing",
   },
   {
     src: "/imgs/postcard3.png",
-    name: "Loco Lemmon",
+    name: "ICE CUP",
     position: "Developer",
   },
   {
     src: "/imgs/postcard4.png",
-    name: "Funky Fig",
-    position: "Developer",
+    name: "BREEZE",
+    position: "Designer",
   },
 ];
 export default function Team() {
@@ -48,9 +48,8 @@ export default function Team() {
     <div id="team" className="bg-lghtGray py-14 lg:py-[100px] xl:py-[120px]">
       <div className="px-10 max-w-864 xl:max-w-1080 lg:px-0 mx-auto">
         <p className="text-crmsn font-extrabold uppercase text-4xl text-center">team</p>
-        <p className="text-black font-medium   text-xs leading-loose text-center">
-          {` Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-          Ipsum has been the industry's standard dummy text ever since the 1500s`}
+        <p className="text-black font-medium   text-xs lg:text-xl leading-loose text-center">
+          {` Some of the Skater Bears who have joined forces to make this happen…`}
         </p>
         <motion.div
           variants={cont}
