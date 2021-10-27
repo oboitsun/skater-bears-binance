@@ -15,12 +15,77 @@ import ComingSoonPopUp from "./ComingSoonPopUp";
 function ConnectWallet({
   showPopup,
   setShowPopup,
+  setUserAddress,
   header = false,
   big,
   userAddress,
-  connectWallet,
-  connectStoic,
+  // connectWallet,
+  // connectStoic,
 }) {
+  const connectPlugWallet = async () => {
+    const nnsCanisterId = "qoctq-giaaa-aaaaa-aaaea-cai";
+    const whitelist = [nnsCanisterId];
+    if (window.ic?.plug) {
+      try {
+        const isConnected = await window.ic.plug.requestConnect({
+          whitelist,
+        });
+        console.log(isConnected);
+        if (isConnected) {
+          const principalId = await window.ic.plug.agent.getPrincipal();
+          setUserAddress(principalId.toText());
+          console.log("hola", `Plug's user principal Id is ${principalId}`);
+        }
+      } catch (error) {
+        window.alert("connection was refused");
+      }
+    } else {
+      window.alert("Plug Wallet not installed.");
+    }
+  };
+
+  const connectStoicWallet = async () => {
+    await StoicIdentity.load();
+    try {
+      let identity = await StoicIdentity.connect();
+      if (identity) {
+        setUserAddress(identity.getPrincipal().toText());
+        console.log("hola", identity.getPrincipal().toText());
+      }
+    } catch (error) {
+      window.alert("connection was refused");
+    }
+  };
+
+  const eventCallback = (resolve) => {
+    if (window.earth) {
+      resolve(window.earth);
+      window.removeEventListener("load", eventCallback(resolve));
+    } else {
+      window.alert("Earth Wallet not installed.");
+      window.removeEventListener("load", eventCallback);
+    }
+  };
+
+  const injectEarth = () => {
+    return new Promise((resolve, reject) => {
+      window.addEventListener("load", eventCallback(resolve));
+      const event = new Event("load");
+      window.dispatchEvent(event);
+    });
+  };
+
+  const connectEarthWallet = async () => {
+    await injectEarth();
+    let account = await window.earth.enable();
+    if (account) {
+      console.log("hola", "Successfully connected to Earth Wallet 🌍", account);
+      setUserAddress(account);
+    } else {
+      window.alert("connection was refused");
+    }
+  };
+
   return (
     <ChakraProvider>
       <div className="">
@@ -53,19 +118,19 @@ function ConnectWallet({
             <Portal>
               <PopoverContent className="pop-over">
                 <PopoverBody>
-                  <Button className="wallet-connect-button" onClick={connectWallet}>
+                  <Button className="wallet-connect-button" onClick={connectPlugWallet}>
                     <img className="icon-logo" src="/imgs/plug-logo.jpg" /> Connect with
                     Plug
                   </Button>
                   <div className="spacer" />
-                  <Button
-                    className="wallet-connect-button"
-                    onClick={() => {
-                      connectStoic(StoicIdentity);
-                    }}
-                  >
+                  <Button className="wallet-connect-button" onClick={connectStoicWallet}>
                     <img className="icon-logo" src="/imgs/stoic-logo.png" /> Connect with
                     Stoic
+                  </Button>
+                  <div className="spacer" />
+                  <Button className="wallet-connect-button" onClick={connectEarthWallet}>
+                    <img className="icon-logo" src="/imgs/earth-logo.jpg" /> Connect with
+                    Earth
                   </Button>
                 </PopoverBody>
               </PopoverContent>
@@ -74,9 +139,10 @@ function ConnectWallet({
         ) : (
           <div className="text-white text-xs font-normal flex flex-col items-center justify-start">
             {header && (
-              <p className="pb-1">{`${userAddress.slice(0, 8)}...${userAddress.slice(
-                -6
-              )}`}</p>
+              <p
+                onClick={() => setUserAddress("")}
+                className="pb-1"
+              >{`${userAddress.slice(0, 8)}...${userAddress.slice(-6)}`}</p>
             )}
             <CWalletButton
               onClick={() => {
