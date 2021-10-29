@@ -11,6 +11,11 @@ import Team from "../components/Team";
 import Footer from "../components/Footer";
 import ModalMenu from "../components/ModalMenu";
 import ComingSoonPopUp from "../components/ComingSoonPopUp";
+
+import { Web3ReactProvider } from '@web3-react/core'
+import Web3ReactManager from '../utils/Web3ReactManager.js';
+import { getLibrary } from '../utils'
+
 const bears = [
   "/imgs/bear1.png",
   "/imgs/bear2.png",
@@ -27,7 +32,6 @@ const bears = [
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [userAddress, setUserAddress] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const handleScroll = (e) => {
     if (e.target.scrollingElement.scrollTop < 10) setScrolled(false);
@@ -44,75 +48,73 @@ export default function Home() {
   //connect wallet functions
 
   return (
-    <div className=" relative overflow-hidden">
-      <div id="top"></div>
-      <Head>
-        <title>Skater Bears</title>
-        <meta name="description" content="Skater Bears NFTs" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="w-full h-full  lg:max-h-[854px] lg:pb-10 relative    bg-black overflow-hidden">
-        <Header
-          setUserAddress={setUserAddress}
-          showPopup={showPopup}
-          setShowPopup={setShowPopup}
-          userAddress={userAddress}
-          showMenu={showMenu}
-          setShowMenu={setShowMenu}
-          scrolled={scrolled}
-        />
-        <div className="w-full relative z-[1]">
-          <HeroSection
-            setUserAddress={setUserAddress}
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <Web3ReactManager>
+        <div className=" relative overflow-hidden">
+          <div id="top"></div>
+          <Head>
+            <title>Skater Bears</title>
+            <meta name="description" content="Skater Bears NFTs" />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <div className="w-full h-full  lg:max-h-[854px] lg:pb-10 relative    bg-black overflow-hidden">
+            <Header
+              showPopup={showPopup}
+              setShowPopup={setShowPopup}
+              showMenu={showMenu}
+              setShowMenu={setShowMenu}
+              scrolled={scrolled}
+            />
+            <div className="w-full relative z-[1]">
+              <HeroSection
+                showPopup={showPopup}
+                setShowPopup={setShowPopup}
+              />
+            </div>
+
+            <div className="absolute w-full h-full top-0">
+              <img
+                className="w-full h-full object-cover"
+                src="/imgs/hero-back.png"
+                alt="hero section"
+              />
+            </div>
+            <div className="lg:hidden absolute w-full h-full top-0">
+              <img
+                className="block w-full object-cover"
+                src="/imgs/hero.png"
+                alt="hero section"
+              />
+            </div>
+          </div>
+
+          <CardsSection />
+          <Team />
+          <Roadmap />
+          <FAQ />
+          <ContactUs />
+          <Footer
             showPopup={showPopup}
             setShowPopup={setShowPopup}
-            userAddress={userAddress}
           />
-        </div>
 
-        <div className="absolute w-full h-full top-0">
-          <img
-            className="w-full h-full object-cover"
-            src="/imgs/hero-back.png"
-            alt="hero section"
-          />
-        </div>
-        <div className="lg:hidden absolute w-full h-full top-0">
-          <img
-            className="block w-full object-cover"
-            src="/imgs/hero.png"
-            alt="hero section"
-          />
-        </div>
-      </div>
-
-      <CardsSection />
-      <Team />
-      <Roadmap />
-      <FAQ />
-      <ContactUs />
-      <Footer
-        setUserAddress={setUserAddress}
-        showPopup={showPopup}
-        setShowPopup={setShowPopup}
-        userAddress={userAddress}
-      />
-
-      <ComingSoonPopUp showPopup={showPopup} setShowPopup={setShowPopup} />
-      <ModalMenu showMenu={showMenu} setShowMenu={setShowMenu} />
-      <div className="flex w-[400%] lg:w-[1920px]  absolute xl:bottom-0 lg:bottom-[-15px]  bottom-[150px] z-[1] left-1/2 transform -translate-x-1/2">
-        {bears.map((b, i) => (
-          <div key={i} className="w-[10%] transform rotate-[-35deg]">
-            <img
-              className="block w-full"
-              src={b}
-              alt="bear NFT"
-              width={458}
-              height={500}
-            />
+          <ComingSoonPopUp showPopup={showPopup} setShowPopup={setShowPopup} />
+          <ModalMenu showMenu={showMenu} setShowMenu={setShowMenu} />
+          <div className="flex w-[400%] lg:w-[1920px]  absolute xl:bottom-0 lg:bottom-[-15px]  bottom-[150px] z-[1] left-1/2 transform -translate-x-1/2">
+            {bears.map((b, i) => (
+              <div key={i} className="w-[10%] transform rotate-[-35deg]">
+                <img
+                  className="block w-full"
+                  src={b}
+                  alt="bear NFT"
+                  width={458}
+                  height={500}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+      </Web3ReactManager>
+    </Web3ReactProvider>
   );
 }

@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import Socials from "./Socials";
 
 const DynamicComponent = dynamic(() => import("./ConnectWallet"), { ssr: false });
-export default function Footer({ showPopup, setShowPopup, userAddress }) {
+export default function Footer({ showPopup, setShowPopup }) {
   const links = [
     { href: "about-us", text: "About Us" },
     { href: "team", text: "Team" },
@@ -48,7 +48,6 @@ export default function Footer({ showPopup, setShowPopup, userAddress }) {
           <DynamicComponent
             showPopup={showPopup}
             setShowPopup={setShowPopup}
-            userAddress={userAddress}
           />
         </div>
       </div>

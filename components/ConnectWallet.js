@@ -1,6 +1,4 @@
-import React, { useState, useRef } from "react";
-import { StoicIdentity } from "ic-stoic-identity";
-import CWalletButton from "./Button";
+import React from "react";
 import {
   Button,
   Popover,
@@ -10,93 +8,25 @@ import {
   Portal,
   ChakraProvider,
 } from "@chakra-ui/react";
-import ComingSoonPopUp from "./ComingSoonPopUp";
+import { useWeb3React } from '@web3-react/core'
+import { injected } from '../utils/connectors';
 
 function ConnectWallet({
-  showPopup,
-  setShowPopup,
-  setUserAddress,
   header = false,
   big,
-  userAddress,
-  // connectWallet,
-  // connectStoic,
 }) {
-  const connectPlugWallet = async () => {
-    const nnsCanisterId = "qoctq-giaaa-aaaaa-aaaea-cai";
-    const whitelist = [nnsCanisterId];
-    if (window.ic?.plug) {
-      try {
-        const isConnected = await window.ic.plug.requestConnect({
-          whitelist,
-        });
-        console.log(isConnected);
-        if (isConnected) {
-          const principalId = await window.ic.plug.agent.getPrincipal();
-          setUserAddress(principalId.toText());
-          console.log("hola", `Plug's user principal Id is ${principalId}`);
-        }
-      } catch (error) {
-        window.alert("connection was refused");
-      }
-    } else {
-      window.alert("Plug Wallet not installed.");
-    }
-  };
-
-  const connectStoicWallet = async () => {
-    await StoicIdentity.load();
-    try {
-      let identity = await StoicIdentity.connect();
-      if (identity) {
-        setUserAddress(identity.getPrincipal().toText());
-        console.log("hola", identity.getPrincipal().toText());
-      }
-    } catch (error) {
-      window.alert("connection was refused");
-    }
-  };
-
-  const eventCallback = (resolve) => {
-    if (window.earth) {
-      resolve(window.earth);
-      window.removeEventListener("load", eventCallback(resolve));
-    } else {
-      window.alert("Earth Wallet not installed.");
-      window.removeEventListener("load", eventCallback);
-    }
-  };
-
-  const injectEarth = () => {
-    return new Promise((resolve, reject) => {
-      window.addEventListener("load", eventCallback(resolve));
-      const event = new Event("load");
-      window.dispatchEvent(event);
-    });
-  };
-
-  const connectEarthWallet = async () => {
-    await injectEarth();
-    let account = await window.earth.enable();
-    if (account) {
-      console.log("hola", "Successfully connected to Earth Wallet 🌍", account);
-      setUserAddress(account);
-    } else {
-      window.alert("connection was refused");
-    }
-  };
+  const { account, activate, deactivate } = useWeb3React()
 
   return (
     <ChakraProvider>
       <div className="">
-        {!userAddress ? (
+        {!account ? (
           <Popover>
             <PopoverTrigger>
               <Button className="cnct-wallet">
                 <span
-                  className={`${
-                    big ? " px-8 py-4" : "px-4"
-                  } border-white border   group  text-white leading-none font-bold text-sm lg:text-base py-2  flex items-center justify-center rounded-[10px] box-content transitions-all duration-[0.4s]`}
+                  className={`${big ? " px-8 py-4" : "px-4"
+                    } border-white border   group  text-white leading-none font-bold text-sm lg:text-base py-2  flex items-center justify-center rounded-[10px] box-content transitions-all duration-[0.4s]`}
                 >
                   Connect Wallet
                   <svg
@@ -118,42 +48,40 @@ function ConnectWallet({
             <Portal>
               <PopoverContent className="pop-over">
                 <PopoverBody>
-                  <Button className="wallet-connect-button" onClick={connectPlugWallet}>
+                  <Button className="wallet-connect-button" onClick={() => {
+                    activate(injected);
+                  }}>
                     <img className="icon-logo" src="/imgs/plug-logo.jpg" /> Connect with
-                    Plug
-                  </Button>
-                  <div className="spacer" />
-                  <Button className="wallet-connect-button" onClick={connectStoicWallet}>
-                    <img className="icon-logo" src="/imgs/stoic-logo.png" /> Connect with
-                    Stoic
-                  </Button>
-                  <div className="spacer" />
-                  <Button className="wallet-connect-button" onClick={connectEarthWallet}>
-                    <img className="icon-logo" src="/imgs/earth-logo.jpg" /> Connect with
-                    Earth
+                    Metamask
                   </Button>
                 </PopoverBody>
               </PopoverContent>
             </Portal>
           </Popover>
-        ) : (
-          <div className="text-white text-xs font-normal flex flex-col items-center justify-start">
-            {header && (
-              <p
-                onClick={() => setUserAddress("")}
-                className="pb-1"
-              >{`${userAddress.slice(0, 8)}...${userAddress.slice(-6)}`}</p>
-            )}
-            <CWalletButton
-              onClick={() => {
-                setShowPopup(true);
-              }}
-              text="Mint NFT"
-              spcng="px-9"
-              icon={false}
-              type="filled"
-            />
-          </div>
+        ) : (header && (
+          <Popover>
+            <PopoverTrigger>
+              <Button className="cnct-wallet">
+                <span
+                  className={`${big ? " px-8 py-4" : "px-4"
+                    } border-white border   group  text-white leading-none font-bold text-sm lg:text-base py-2  flex items-center justify-center rounded-[10px] box-content transitions-all duration-[0.4s]`}
+                >{`${account.slice(0, 8)}...${account.slice(-6)}`}
+                </span>
+              </Button>
+            </PopoverTrigger>
+            <Portal>
+              <PopoverContent className="pop-over">
+                <PopoverBody>
+                  <Button className="wallet-connect-button" onClick={() => {
+                    deactivate();
+                  }}>
+                    Disconnect
+                  </Button>
+                </PopoverBody>
+              </PopoverContent>
+            </Portal>
+          </Popover>
+        )
         )}
       </div>
     </ChakraProvider>

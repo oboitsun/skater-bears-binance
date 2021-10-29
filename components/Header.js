@@ -8,11 +8,8 @@ import Socials from "./Socials";
 
 const DynamicComponent = dynamic(() => import("./ConnectWallet"), { ssr: false });
 export default function Header({
-  setUserAddress,
   showPopup,
   setShowPopup,
-  userAddress,
-
   showMenu,
   setShowMenu,
   scrolled,
@@ -40,9 +37,8 @@ export default function Header({
   };
   return (
     <div
-      className={`w-full   px-10 lg:px-0 transition-all duration-500   fixed top-0 left-0 z-30 ${
-        scrolled ? "bg-black py-3 shadow-lg" : "py-[30px]"
-      }`}
+      className={`w-full   px-10 lg:px-0 transition-all duration-500   fixed top-0 left-0 z-30 ${scrolled ? "bg-black py-3 shadow-lg" : "py-[30px]"
+        }`}
     >
       <div className="max-w-864 xl:max-w-1080 mx-auto justify-between flex items-center">
         <div>
@@ -58,11 +54,9 @@ export default function Header({
           <Socials />
           {rendered && (
             <DynamicComponent
-              setUserAddress={setUserAddress}
               showPopup={showPopup}
               setShowPopup={setShowPopup}
               header
-              userAddress={userAddress}
             />
           )}
         </div>
