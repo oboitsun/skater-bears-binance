@@ -4,15 +4,11 @@ import FaqItem from "./FaqItem";
 const faqs = [
   {
     qstn: "How do I buy a Skater Bears?",
-    answr: `It’s simple, just press the “Connect Wallet” button, and connect with either
-  STOIC Wallet or Plug. You will then be able to “Mint” your own Skater Bear
-  using the “Mint Now” button. Please note there is a limit of 20 Skater
-  Bears per person.`,
+    answr: `It’s simple, just press the “Connect Wallet” button, and connect with Metamask. You will then be able to “Mint” your own Skater Bear using the “Mint Now” button. Please note there is a limit of 20 Skater Bears per person.`,
   },
   {
     qstn: "What Blockhain and technology are Skater Bears on?",
-    answr: `We have minted the Skater Bears on the DFINITY Internet Computer
-  blockchain, in which we believe is perfect for the project.`,
+    answr: `We have minted the Skater Bears on the BINANCE blockchain, in which we believe is perfect for the project.`,
   },
   {
     qstn: "What can I do with once I get my Skaters Bears NFT?",
@@ -29,7 +25,7 @@ const faqs = [
   },
   {
     qstn: "What wallet do I need to be able to connect to buy?",
-    answr: `You can connect using STOIC Wallet or Plug Wallet at this time.`,
+    answr: `ou can connect using Meta Mask Wallet at this time.`,
   },
   {
     qstn: "What are the future plans for the Skaters Bears project?",
